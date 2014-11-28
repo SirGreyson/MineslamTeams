@@ -1,0 +1,14 @@
+### Configuration for the MineslamTeams Plugin ###
+
+## Maximum amount of members allowed on a Team ##
+MAX_MEMBERS: 10
+## Time (in seconds) before a Team invitation expires ##
+INVITE_EXPIRE: 600
+
+## MySQL Database Configuration ##
+mySQL:
+  HOST: localhost
+  PORT: 3306
+  DATABASE: teams
+  USERNAME: root
+  PASSWORD: password

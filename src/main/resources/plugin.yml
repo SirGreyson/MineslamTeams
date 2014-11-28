@@ -1,0 +1,10 @@
+name: MineslamTeams
+version: 2.0.0
+description: Global Teams plugin for Mineslam
+author: SirReason
+
+main: net.mineslam.teams.MineslamTeams
+
+commands:
+  team:
+    description: Main plugin command
