@@ -40,11 +40,15 @@ public class PlayerListener implements Listener {
         if (e.getDamager() instanceof Projectile && !(((Projectile) e.getDamager()).getShooter() instanceof Player)) {
             return;
         }
+        if (e.getDamager() instanceof Projectile && ((Projectile) e.getDamager()).getShooter().equals(e.getEntity())) {
+            return;
+        }
         Team team1 = plugin.getTeamManager().getPlayerTeam((Player) e.getEntity());
         Team team2 = plugin.getTeamManager().getPlayerTeam((Player) (e.getDamager() instanceof Projectile ? ((Projectile) e.getDamager()).getShooter() : e.getDamager()));
         if (team1 != null && team2 != null && team1.getTeamID().equals(team2.getTeamID())) {
             if (!team1.hasFriendlyFire()) {
-                ((Player) e.getDamager()).sendMessage(ChatColor.RED + "Friendly fire is disabled on your Team!");
+                Player player = (Player) (e.getDamager() instanceof Projectile ? ((Projectile) e.getDamager()).getShooter() : e.getDamager());
+                player.sendMessage(ChatColor.RED + "Friendly fire is disabled on your Team!");
                 e.setCancelled(true);
             }
         }
